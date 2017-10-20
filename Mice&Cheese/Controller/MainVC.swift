@@ -8,18 +8,53 @@
 
 import UIKit
 
-class MainVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource{
+class MainVC: UIViewController{
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.configureCollectionView()
+        
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    func configureCollectionView() {
+        
+        self.collectionView.dataSource = self
+        
+        self.collectionView.delegate = self
+        
+        self.customLayoutForCollectionView()
+    }
+    
+    func customLayoutForCollectionView(){
+        let itemWidth = (UIScreen.main.bounds.width - 16 ) / 7
+        let itemHeight = collectionView.frame.size.height / 10
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        layout.footerReferenceSize = CGSize(width: 0, height: 0)
+        
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        
+        collectionView.collectionViewLayout = layout
+    }
+
+}
+
+extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return 25
+        return 70
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
-    }
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionCell
+        cell.imageView.image = UIImage(named: "Mouse")
+        return cell
     }
 }
-

@@ -15,5 +15,4 @@ class RoundedBanner: UIView {
         layer.cornerRadius = 25
         self.clipsToBounds = true
     }
-
 }

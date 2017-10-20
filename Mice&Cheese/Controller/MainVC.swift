@@ -10,16 +10,24 @@ import UIKit
 
 class MainVC: UIViewController{
     
+    var isStart: Bool = false
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var startButton: RoundedButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.configureCollectionView()
         
+        self.startButton.addTarget(self, action: #selector(self.startButtonAction(_:)), for: .touchUpInside)
     }
     
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func startButtonAction(_ sender: UIButton) {
+        self.isStart = !isStart
     }
     
     func configureCollectionView() {
@@ -44,7 +52,6 @@ class MainVC: UIViewController{
         
         collectionView.collectionViewLayout = layout
     }
-
 }
 
 extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource {
@@ -52,9 +59,16 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource {
         return 70
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if !isStart {
+            if let cell =  self.collectionView.cellForItem(at: indexPath) as? CollectionCell{
+                cell.backgroundView = UIImageView(image: UIImage(named: "wireImg"))
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionCell
-        cell.imageView.image = UIImage(named: "Mouse")
         return cell
     }
 }

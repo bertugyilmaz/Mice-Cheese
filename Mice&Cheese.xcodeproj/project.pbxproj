@@ -15,6 +15,7 @@
 		612CC3B91F9A8F0800455383 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612CC3B81F9A8F0800455383 /* CollectionCell.swift */; };
 		612CC3BB1F9A8F2E00455383 /* RoundedBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612CC3BA1F9A8F2E00455383 /* RoundedBanner.swift */; };
 		612CC3BD1F9A909500455383 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612CC3BC1F9A909500455383 /* RoundedButton.swift */; };
+		61660C271F9BB95C00B46206 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61660C261F9BB95C00B46206 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		612CC3B81F9A8F0800455383 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		612CC3BA1F9A8F2E00455383 /* RoundedBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBanner.swift; sourceTree = "<group>"; };
 		612CC3BC1F9A909500455383 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		61660C261F9BB95C00B46206 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		01BA3EDA1F9A57B5004DA643 /* Mice&Cheese */ = {
 			isa = PBXGroup;
 			children = (
+				61660C281F9BB96400B46206 /* Extensions */,
 				612CC3B71F9A8EE700455383 /* Controller */,
 				612CC3B61F9A8EDE00455383 /* View */,
 				01BA3EDB1F9A57B5004DA643 /* AppDelegate.swift */,
@@ -87,6 +90,14 @@
 				01BA3EDD1F9A57B5004DA643 /* MainVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		61660C281F9BB96400B46206 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				61660C261F9BB95C00B46206 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01BA3EDE1F9A57B5004DA643 /* MainVC.swift in Sources */,
+				61660C271F9BB95C00B46206 /* Extensions.swift in Sources */,
 				612CC3BD1F9A909500455383 /* RoundedButton.swift in Sources */,
 				612CC3BB1F9A8F2E00455383 /* RoundedBanner.swift in Sources */,
 				01BA3EDC1F9A57B5004DA643 /* AppDelegate.swift in Sources */,

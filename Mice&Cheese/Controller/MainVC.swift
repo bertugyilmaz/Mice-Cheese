@@ -16,6 +16,8 @@ class MainVC: UIViewController{
     var mousePosition : Int!
     var cheesePosition : Int!
     var isValidPosition : Bool!
+    var cell1 : CollectionCell!
+    var cell2 : CollectionCell!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,14 +34,16 @@ class MainVC: UIViewController{
     func startButtonAction(_ sender: UIButton) {
         self.isStart = !isStart
         generateLocationForMouseAndCheese()
+        sender.isEnabled = false
     }
     func generateLocationForMouseAndCheese() {
+        var MaxCounter : Int = 0 // eğer tum celleri duvar seçerse diye döngü sonsuz a girmemeli bunu nasıl yapıcaz bilmiyorum sen bakıver :)
         repeat{
             isValidPosition = false
             mousePosition = Int(arc4random_uniform(71))
             cheesePosition = Int(arc4random_uniform(71))
-            let cell1 = self.collectionView!.cellForItem(at:  IndexPath(row: mousePosition,section: 0)) as! CollectionCell
-            let cell2 = self.collectionView!.cellForItem(at:  IndexPath(row: cheesePosition,section: 0)) as! CollectionCell
+            cell1 = self.collectionView!.cellForItem(at:  IndexPath(row: mousePosition,section: 0)) as! CollectionCell
+            cell2 = self.collectionView!.cellForItem(at:  IndexPath(row: cheesePosition,section: 0)) as! CollectionCell
             if cell1.isWall || cell2.isWall{
                 isValidPosition = false
             }else{
@@ -47,51 +51,16 @@ class MainVC: UIViewController{
             }
             print("Onur : mouse \(mousePosition) cheese : \(cheesePosition)")
             print("Onur : Cell1 isWall = \(cell1.isWall) Cell2 isWall = \(cell2.isWall)")
-        }while(mousePosition == cheesePosition && isValidPosition == true)
+            
+        }while(mousePosition == cheesePosition && isValidPosition == false)
+      
+            cell1.imageView.image = UIImage(named: "Mouse")
+            cell2.imageView.image = UIImage(named: "Cheese")
+       
     }
     
-    func configureCollectionView() {
-        
-        self.collectionView.dataSource = self
-        
-        self.collectionView.delegate = self
-        
-        self.customLayoutForCollectionView()
-    }
     
-    func customLayoutForCollectionView(){
-        let itemWidth = (UIScreen.main.bounds.width - 16 ) / 7
-        let itemHeight = collectionView.frame.size.height / 10
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
-        layout.footerReferenceSize = CGSize(width: 0, height: 0)
-        
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        
-        collectionView.collectionViewLayout = layout
-    }
+    
+  
 }
 
-extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 70
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if !isStart {
-            if let cell =  self.collectionView.cellForItem(at: indexPath) as? CollectionCell{
-                cell.backgroundView = UIImageView(image: UIImage(named: "wireImg"))
-                cell.isWall = true
-            }
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionCell
-        cell.tag = indexPath.row + 1
-        
-        return cell
-    }
-}

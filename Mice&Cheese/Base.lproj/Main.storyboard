@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -101,11 +102,8 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lo-y4-bgc" customClass="RoundedButton" customModule="Mice_Cheese" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="613" width="100" height="31"/>
+                                <rect key="frame" x="24" y="613" width="327" height="31"/>
                                 <color key="backgroundColor" red="1" green="0.56024909290000002" blue="0.26509904309999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="jAf-ff-QBi"/>
-                                </constraints>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -118,6 +116,8 @@
                             <constraint firstItem="mKz-T5-l7r" firstAttribute="top" secondItem="Xom-S0-ZaU" secondAttribute="bottom" id="Prq-Gl-Jcw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8lo-y4-bgc" secondAttribute="bottom" constant="23" id="YN6-KI-qIX"/>
                             <constraint firstItem="Xom-S0-ZaU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ZRq-Bp-UfP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8lo-y4-bgc" secondAttribute="trailing" constant="8" id="bXj-0h-XiG"/>
+                            <constraint firstItem="8lo-y4-bgc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="ebG-pZ-woA"/>
                             <constraint firstItem="8lo-y4-bgc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gNW-ZC-7gp"/>
                             <constraint firstAttribute="trailing" secondItem="Xom-S0-ZaU" secondAttribute="trailing" id="kPb-Dl-QGC"/>
                             <constraint firstItem="8lo-y4-bgc" firstAttribute="top" secondItem="mKz-T5-l7r" secondAttribute="bottom" constant="23" id="nmq-17-hLR"/>

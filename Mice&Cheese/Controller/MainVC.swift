@@ -14,6 +14,7 @@ class MainVC: UIViewController{
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var startButton: RoundedButton!
     var mousePosition : Int!
+    var selectedWallCounter : Int = 0
     var cheesePosition : Int!
     var isValidPosition : Bool!
     var cell1 : CollectionCell!
@@ -27,6 +28,7 @@ class MainVC: UIViewController{
         
     }
     
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -37,8 +39,10 @@ class MainVC: UIViewController{
         sender.isEnabled = false
     }
     func generateLocationForMouseAndCheese() {
-        var MaxCounter : Int = 0 // eğer tum celleri duvar seçerse diye döngü sonsuz a girmemeli bunu nasıl yapıcaz bilmiyorum sen bakıver :)
         repeat{
+            if selectedWallCounter > 68 {
+                break
+            }
             isValidPosition = false
             mousePosition = Int(arc4random_uniform(71))
             cheesePosition = Int(arc4random_uniform(71))
@@ -52,11 +56,20 @@ class MainVC: UIViewController{
             print("Onur : mouse \(mousePosition) cheese : \(cheesePosition)")
             print("Onur : Cell1 isWall = \(cell1.isWall) Cell2 isWall = \(cell2.isWall)")
             
-        }while(mousePosition == cheesePosition && isValidPosition == false)
-      
+        }while(mousePosition == cheesePosition || isValidPosition == false)
+        if selectedWallCounter  > 68 {
+            let alert = UIAlertController(title: "Trying to Find a Bug ?", message: "You Selected All cells as wall so there is no place for our mouse and cheese 🤡", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Okay, I Understood 😔", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }else{
             cell1.imageView.image = UIImage(named: "Mouse")
             cell2.imageView.image = UIImage(named: "Cheese")
-       
+        }
+        
+    }
+    
+    func mouseMovement() {
+        //birlikte bakalım
     }
     
     

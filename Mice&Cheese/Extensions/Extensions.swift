@@ -9,6 +9,8 @@
 import UIKit
 
 extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource {
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 70
     }
@@ -19,14 +21,17 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource {
                 if !cell.isWall{
                     cell.backgroundView = UIImageView(image: UIImage(named: "wireImg"))
                     cell.isWall = true
+                    self.selectedWallCounter += 1
                 }else{
                     cell.backgroundView = .none
                     cell.isWall = false
+                    self.selectedWallCounter -= 1
                 }
                 
             }
         }
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionCell

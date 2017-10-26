@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01BA05231FA1312D009B025D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BA05221FA1312D009B025D /* Constants.swift */; };
 		01BA3EDC1F9A57B5004DA643 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BA3EDB1F9A57B5004DA643 /* AppDelegate.swift */; };
 		01BA3EDE1F9A57B5004DA643 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BA3EDD1F9A57B5004DA643 /* MainVC.swift */; };
 		01BA3EE11F9A57B5004DA643 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01BA3EDF1F9A57B5004DA643 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01BA05221FA1312D009B025D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		01BA3ED81F9A57B5004DA643 /* Mice&Cheese.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mice&Cheese.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01BA3EDB1F9A57B5004DA643 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01BA3EDD1F9A57B5004DA643 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -62,14 +64,15 @@
 		01BA3EDA1F9A57B5004DA643 /* Mice&Cheese */ = {
 			isa = PBXGroup;
 			children = (
+				01BA3EDB1F9A57B5004DA643 /* AppDelegate.swift */,
 				61660C281F9BB96400B46206 /* Extensions */,
 				612CC3B71F9A8EE700455383 /* Controller */,
 				612CC3B61F9A8EDE00455383 /* View */,
-				01BA3EDB1F9A57B5004DA643 /* AppDelegate.swift */,
 				01BA3EDF1F9A57B5004DA643 /* Main.storyboard */,
 				01BA3EE21F9A57B5004DA643 /* Assets.xcassets */,
 				01BA3EE41F9A57B5004DA643 /* LaunchScreen.storyboard */,
 				01BA3EE71F9A57B5004DA643 /* Info.plist */,
+				01BA05221FA1312D009B025D /* Constants.swift */,
 			);
 			path = "Mice&Cheese";
 			sourceTree = "<group>";
@@ -132,7 +135,7 @@
 				TargetAttributes = {
 					01BA3ED71F9A57B5004DA643 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = B4F2B776R3;
+						DevelopmentTeam = 37V52RJ6S5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -177,6 +180,7 @@
 				61660C271F9BB95C00B46206 /* Extensions.swift in Sources */,
 				612CC3BD1F9A909500455383 /* RoundedButton.swift in Sources */,
 				612CC3BB1F9A8F2E00455383 /* RoundedBanner.swift in Sources */,
+				01BA05231FA1312D009B025D /* Constants.swift in Sources */,
 				01BA3EDC1F9A57B5004DA643 /* AppDelegate.swift in Sources */,
 				612CC3B91F9A8F0800455383 /* CollectionCell.swift in Sources */,
 			);
@@ -301,10 +305,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = B4F2B776R3;
+				DEVELOPMENT_TEAM = 37V52RJ6S5;
 				INFOPLIST_FILE = "Mice&Cheese/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.micecheese;
+				PRODUCT_BUNDLE_IDENTIFIER = com.micecheeses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -314,10 +318,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = B4F2B776R3;
+				DEVELOPMENT_TEAM = 37V52RJ6S5;
 				INFOPLIST_FILE = "Mice&Cheese/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.micecheese;
+				PRODUCT_BUNDLE_IDENTIFIER = com.micecheeses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

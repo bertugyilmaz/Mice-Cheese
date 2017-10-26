@@ -9,9 +9,13 @@
 import UIKit
 
 class CollectionCell: UICollectionViewCell {
+   
     @IBOutlet weak var imageView: UIImageView!
-    public var countStep : Int!
-    public var isWall : Bool = false
+    
+    public var countStep: Int!
+    public var isWall: Bool = false
+    public var foundItCheese: Bool = false
+    
     override func layoutSubviews() {
         self.backgroundColor = UIColor(red:0.47, green:0.33, blue:0.33, alpha:1.0)
     }

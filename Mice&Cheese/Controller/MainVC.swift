@@ -31,6 +31,11 @@ class MainVC: UIViewController{
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.createWall()
+    }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -77,22 +82,6 @@ class MainVC: UIViewController{
         }
     }
     
-    // Index i baz alarak labirentin kenar bölgelerine image(Duvar) ekler.
-    func createWall(){
-        for index in 0...CELLCOUNT - 1{
-            let strIndex = String(index)
-            let arrIndex = Array(strIndex.characters)
-            
-            if arrIndex.last == "0" || arrIndex.last == "9" {
-                self.setImageOfCell(index: index, imageName: "wireImg", isImageView: false)
-            }
-            
-            if arrIndex.count == 1 || arrIndex.count == 3 {
-                self.setImageOfCell(index: index, imageName: "wireImg", isImageView: false)
-            }
-        }
-    }
-    
     // Farenin ayak izlerini bulup array a append etmektedir.
     func findMousePug() {
         repeat{
@@ -127,7 +116,6 @@ class MainVC: UIViewController{
                         }
                         
                         continue
-                        
                     }
                 }
             }
@@ -177,7 +165,7 @@ class MainVC: UIViewController{
         if isImageView {
             dummyCell.imageView.image = UIImage(named: imageName)
             self.mousePosition = index
-            if index == cheesePosition {
+            if index == self.cheesePosition {
                 dummyCell.foundItCheese = true
                 return
             }
@@ -189,5 +177,22 @@ class MainVC: UIViewController{
             }
         }
     }
+    
+    // Index i baz alarak labirentin kenar bölgelerine image(Duvar) ekler.
+    func createWall(){
+        for index in 0...CELLCOUNT - 1{
+            let strIndex = String(index)
+            let arrIndex = Array(strIndex.characters)
+            
+            if arrIndex.last == "0" || arrIndex.last == "9" {
+                self.setImageOfCell(index: index, imageName: "wireImg", isImageView: false)
+            }
+            
+            if arrIndex.count == 1 || arrIndex.count == 3 {
+                self.setImageOfCell(index: index, imageName: "wireImg", isImageView: false)
+            }
+        }
+    }
+    
 }
 

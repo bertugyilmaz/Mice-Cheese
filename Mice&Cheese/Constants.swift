@@ -9,4 +9,4 @@
 import Foundation
 
 let CELLCOUNT = 110
-
+let WALL = 1

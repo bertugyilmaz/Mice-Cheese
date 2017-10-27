@@ -49,7 +49,7 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource {
     }
     
     func customLayoutForCollectionView(){
-        let itemWidth = (UIScreen.main.bounds.width - 16 ) / 10
+        let itemWidth = (UIScreen.main.bounds.width) / 10
         let itemHeight = (collectionView.frame.size.height - 1) / 11
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)

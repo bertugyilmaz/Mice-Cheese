@@ -17,6 +17,7 @@ class MainVC: UIViewController{
     var isValidPosition : Bool!
     var mouseCell: CollectionCell!
     var cheeseCell: CollectionCell!
+    var pug: [Int] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var startButton: RoundedButton!
@@ -59,8 +60,6 @@ class MainVC: UIViewController{
                 isValidPosition = true
             }
             
-            
-            
         }while(mousePosition == cheesePosition || isValidPosition == false)
         
         if selectedWallCounter  > 108 {
@@ -72,6 +71,9 @@ class MainVC: UIViewController{
         }else{
             mouseCell.imageView.image = UIImage(named: "Mouse")
             cheeseCell.imageView.image = UIImage(named: "Cheese")
+            print("Cheese Position --> \(cheesePosition!)")
+            print("Mouse Position --> \(mousePosition!)")
+            findMousePug()
         }
     }
     
@@ -86,17 +88,89 @@ class MainVC: UIViewController{
             }
             
             if arrIndex.count == 1 || arrIndex.count == 3 {
-                print(arrIndex.count)
                 self.setImageOfCell(index: index, imageName: "wireImg", isImageView: false)
             }
         }
     }
     
-    func mouseMovement() {
-        //birlikte bakalım
+    // Farenin ayak izlerini bulup array a append etmektedir.
+    func findMousePug() {
+        repeat{
+            
+            if let positionRight = mousePosition + 1 as? Int {
+                if let rightCell = self.collectionView.cellForItem(at: IndexPath(row: positionRight, section: 0)) as? CollectionCell {
+                    if !rightCell.isWall && !rightCell.isPug {
+                        rightCell.isPug = true
+                        self.mousePosition = positionRight
+                        self.pug.append(mousePosition)
+                        print(mousePosition)
+                        if positionRight == cheesePosition {
+                            rightCell.foundItCheese = true
+                            break
+                        }
+
+                        continue
+                    }
+                }
+            }
+            
+            if let positionBottom = mousePosition + 10 as? Int {
+                if let bottomCell = self.collectionView.cellForItem(at: IndexPath(row: positionBottom, section: 0)) as? CollectionCell {
+                    if !bottomCell.isWall && !bottomCell.isPug {
+                        bottomCell.isPug = true
+                        mousePosition = positionBottom
+                        self.pug.append(mousePosition)
+                        print(mousePosition)
+                        if positionBottom == cheesePosition {
+                            bottomCell.foundItCheese = true
+                            break
+                        }
+                        
+                        continue
+                        
+                    }
+                }
+            }
+          
+            if let positionLeft = mousePosition - 1 as? Int {
+                if let leftCell = self.collectionView.cellForItem(at: IndexPath(row: positionLeft, section: 0)) as? CollectionCell {
+                    if !leftCell.isWall && !leftCell.isPug{
+                        leftCell.isPug = true
+                        mousePosition = positionLeft
+                        self.pug.append(mousePosition)
+                        print(mousePosition)
+                        if positionLeft == cheesePosition {
+                            leftCell.foundItCheese = true
+                            break
+                        }
+                        
+                        continue
+                    }
+                }
+            }
+            
+            if let positionTop = mousePosition - 10 as? Int {
+                if let topCell = self.collectionView.cellForItem(at: IndexPath(row: positionTop, section: 0)) as? CollectionCell {
+                    if !topCell.isWall && !topCell.isPug{
+                        topCell.isPug = true
+                        mousePosition = positionTop
+                        self.pug.append(mousePosition)
+                        print(mousePosition)
+                        if positionTop == cheesePosition {
+                            topCell.foundItCheese = true
+                            break
+                        }
+                        
+                        continue
+                    }
+                }
+            }
+            
+        }while (!cheeseCell.foundItCheese)
+        
     }
     
-    // girilen parametrelere göre cell in imageView ına ya da backgroundView ına image set eder.
+    // Girilen parametrelere göre cell in imageView ına ya da backgroundView ına image set eder.
     func setImageOfCell(index: Int, imageName: String, isImageView: Bool) {
         
         let dummyCell = self.collectionView!.cellForItem(at:  IndexPath(row: index,section: 0)) as! CollectionCell
@@ -111,6 +185,7 @@ class MainVC: UIViewController{
             dummyCell.backgroundView = UIImageView(image: UIImage(named: imageName))
             if imageName == "wireImg"{
                 dummyCell.isWall = true
+                dummyCell.tag = WALL
             }
         }
     }

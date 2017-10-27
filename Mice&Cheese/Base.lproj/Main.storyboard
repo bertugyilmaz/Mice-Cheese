@@ -52,7 +52,7 @@
                                 <rect key="frame" x="0.0" y="80" width="375" height="490"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BEC-DO-K6i">
-                                        <rect key="frame" x="8" y="8" width="359" height="474"/>
+                                        <rect key="frame" x="0.0" y="8" width="375" height="474"/>
                                         <color key="backgroundColor" red="0.71724295616149902" green="0.56537008285522461" blue="0.48011088371276855" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="474" id="Jn9-Lb-Wzd"/>
@@ -93,9 +93,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="BEC-DO-K6i" secondAttribute="trailing" constant="8" id="0E3-ye-673"/>
+                                    <constraint firstAttribute="trailing" secondItem="BEC-DO-K6i" secondAttribute="trailing" id="0E3-ye-673"/>
                                     <constraint firstAttribute="width" constant="375" id="4QN-5J-Jhz"/>
-                                    <constraint firstItem="BEC-DO-K6i" firstAttribute="leading" secondItem="mKz-T5-l7r" secondAttribute="leading" constant="8" id="UM5-Bi-4n5"/>
+                                    <constraint firstItem="BEC-DO-K6i" firstAttribute="leading" secondItem="mKz-T5-l7r" secondAttribute="leading" id="UM5-Bi-4n5"/>
                                     <constraint firstItem="BEC-DO-K6i" firstAttribute="top" secondItem="mKz-T5-l7r" secondAttribute="top" constant="8" id="Xok-6R-pIC"/>
                                     <constraint firstAttribute="bottom" secondItem="BEC-DO-K6i" secondAttribute="bottom" constant="8" id="g4p-AT-rxB"/>
                                     <constraint firstAttribute="height" constant="490" id="s9D-5r-FIY"/>
@@ -109,7 +109,7 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.93333333333333335" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mKz-T5-l7r" secondAttribute="trailing" id="IhK-gD-mzl"/>
                             <constraint firstItem="mKz-T5-l7r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JEu-Qy-zNZ"/>

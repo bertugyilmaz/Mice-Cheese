@@ -12,7 +12,8 @@ class RoundedBanner: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = 25
+        
+        self.layer.cornerRadius = 25
         self.clipsToBounds = true
     }
 }

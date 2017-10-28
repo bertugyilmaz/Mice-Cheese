@@ -8,13 +8,13 @@
 
 import UIKit
 
-class MainVC: UIViewController{
+class MainVC: UIViewController {
     
     var isStart: Bool = false
-    var mousePosition : Int!
-    var selectedWallCounter : Int = 0
-    var cheesePosition : Int!
-    var isValidPosition : Bool!
+    var mousePosition: Int!
+    var cheesePosition: Int!
+    var selectedWallCounter: Int = 0
+    var isValidPosition: Bool!
     var mouseCell: CollectionCell!
     var cheeseCell: CollectionCell!
     var pug: [Int] = []
@@ -41,8 +41,11 @@ class MainVC: UIViewController{
     
     func startButtonAction(_ sender: UIButton) {
         self.isStart = !isStart
-        createWall()
-        generateLocationForMouseAndCheese()
+        
+        self.createWall()
+        
+        self.generateLocationForMouseAndCheese()
+        
         sender.isEnabled = false
     }
     
@@ -188,6 +191,37 @@ class MainVC: UIViewController{
             
             if arrIndex.count == 1 || arrIndex.count == 3 {
                 self.setImageOfCell(index: index, imageName: "wireImg", isImageView: false)
+            }
+        }
+    }
+    
+    func delay(_ delay:Double, closure:@escaping ()->()) {
+        let when = DispatchTime.now() + delay
+        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
+    }
+    
+    func onTranstion(){
+        self.delay(2) {
+            
+            if self.pug.count != 0{
+                for index in 1...self.pug.count - 1 {
+                
+                    if let cell = self.collectionView!.cellForItem(at: IndexPath(row: self.pug[index],section: 0)) as? CollectionCell {
+                        if let beforeCell = self.collectionView!.cellForItem(at:  IndexPath(row: self.pug[index - 1],section: 0)) as? CollectionCell {
+                    
+                            UIView.transition(with: self.view, duration: 2, options: .transitionCrossDissolve, animations: {
+
+                                cell.imageView.image = UIImage(named: "Mouse")
+                                beforeCell.imageView.image = UIImage(named: "")
+
+                            }, completion: { (succes: Bool) in
+                                if succes {
+                                }
+                            })
+                        
+                        }
+                    }
+                }
             }
         }
     }

@@ -7,5 +7,5 @@
 
 
 **Contributor**
-- Onur Hüseyin ÇANTAY
-- Bertuğ YILMAZ
+- <a href="https://github.com/onurhuseyincantay">Onur Hüseyin ÇANTAY</a>
+- <a href="https://github.com/bertugylmaz">Bertuğ YILMAZ</a>
